@@ -6,7 +6,7 @@ import { routing } from "@/i18n/routing";
 import "../globals.css";
 import AgeGate from "@/components/AgeGate";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateau-baysselance.fr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateaubaysselance.fr";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

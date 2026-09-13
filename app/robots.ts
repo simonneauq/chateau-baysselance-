@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateau-baysselance.fr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateaubaysselance.fr";
 
 export default function robots(): MetadataRoute.Robots {
   return {

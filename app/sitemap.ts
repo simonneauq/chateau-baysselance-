@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateau-baysselance.fr";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateaubaysselance.fr";
 
 const paths = [
   "",
