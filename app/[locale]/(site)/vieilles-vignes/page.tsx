@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Vieilles Vignes",
   description:
     "Le patrimoine des vieilles vignes du Château Baysselance : sélection massale, enracinement profond, rendements naturellement maîtrisés. AOC Graves, Landiras.",
+  alternates: {
+    languages: { fr: "/fr/vieilles-vignes", en: "/en/vieilles-vignes" },
+  },
   openGraph: {
     title: "Vieilles Vignes — Château Baysselance",
     images: [{ url: "/photo_10.jpg", width: 1200, height: 800 }],
   },
 };
 
-export default function VieuillesVignesPage() {
-  const t = useTranslations("vignes");
+export default async function VieuillesVignesPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("vignes");
 
   return (
     <div className="pt-20">
@@ -44,6 +53,8 @@ export default function VieuillesVignesPage() {
             <p className="leading-relaxed">{t("p2")}</p>
           </div>
           <div className="space-y-4">
+            {/* TODO: remplacer par une photo de vieux ceps (juin) — la photo
+                actuelle (givre en gros plan) est trop abstraite pour être lisible */}
             <div className="relative h-80 overflow-hidden">
               <Image
                 src="/photo_3.jpg"

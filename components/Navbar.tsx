@@ -74,6 +74,7 @@ export default function Navbar({ locale }: { locale: string }) {
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-white p-1"
             aria-label="Menu"
+            aria-expanded={menuOpen}
           >
             <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
             <div className={`w-6 h-0.5 bg-white mb-1.5 transition-all ${menuOpen ? "opacity-0" : ""}`} />

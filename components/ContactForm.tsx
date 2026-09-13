@@ -11,6 +11,11 @@ type Labels = {
   placeholderName: string;
   placeholderEmail: string;
   placeholderMessage: string;
+  successTitle: string;
+  successText: string;
+  errorRequired: string;
+  errorEmail: string;
+  errorServer: string;
 };
 
 const initialState: ContactState = { status: "idle" };
@@ -23,19 +28,23 @@ export default function ContactForm({ labels }: { labels: Labels }) {
       <div className="flex flex-col justify-center py-12">
         <div className="w-8 h-0.5 bg-[var(--gold)] mb-6" />
         <p className="font-serif text-xl text-[var(--green-deep)]">
-          Message envoyé — merci !
+          {labels.successTitle}
         </p>
-        <p className="mt-3 text-sm text-[var(--stone)]">
-          Frédéric vous répondra dans les meilleurs délais.
-        </p>
+        <p className="mt-3 text-sm text-[var(--stone)]">{labels.successText}</p>
       </div>
     );
   }
 
+  const errorMessages: Record<NonNullable<ContactState["errorCode"]>, string> = {
+    required: labels.errorRequired,
+    invalid_email: labels.errorEmail,
+    server: labels.errorServer,
+  };
+
   return (
     <form action={formAction} className="space-y-6">
-      {state.status === "error" && (
-        <p className="text-sm text-red-600">{state.message}</p>
+      {state.status === "error" && state.errorCode && (
+        <p className="text-sm text-red-600">{errorMessages[state.errorCode]}</p>
       )}
 
       <div>

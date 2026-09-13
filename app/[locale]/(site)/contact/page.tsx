@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 import ContactForm from "@/components/ContactForm";
 
@@ -7,14 +7,23 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contactez le Château Baysselance — domaine viticole en AOC Graves à Landiras, Gironde.",
+  alternates: {
+    languages: { fr: "/fr/contact", en: "/en/contact" },
+  },
   openGraph: {
     title: "Contact — Château Baysselance",
     images: [{ url: "/photo_10.jpg", width: 1200, height: 800 }],
   },
 };
 
-export default function ContactPage() {
-  const t = useTranslations("contact");
+export default async function ContactPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("contact");
 
   return (
     <div className="pt-20">
@@ -79,6 +88,11 @@ export default function ContactPage() {
             placeholderName: t("form_placeholder_name"),
             placeholderEmail: t("form_placeholder_email"),
             placeholderMessage: t("form_placeholder_message"),
+            successTitle: t("form_success_title"),
+            successText: t("form_success_text"),
+            errorRequired: t("form_error_required"),
+            errorEmail: t("form_error_email"),
+            errorServer: t("form_error_server"),
           }}
         />
       </section>

@@ -1,19 +1,24 @@
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 import "../globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import AgeGate from "@/components/AgeGate";
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateau-baysselance.fr";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Château Baysselance — AOC Graves, Landiras",
     template: "%s — Château Baysselance",
   },
   description:
     "Domaine viticole en AOC Graves à Landiras. Vieilles vignes, travail au cheval, certification biologique en cours. Graves blanc sec, moelleux, pétillant naturel.",
+  alternates: {
+    languages: { fr: "/fr", en: "/en" },
+  },
   openGraph: {
     title: "Château Baysselance",
     description:
@@ -37,6 +42,10 @@ export const metadata: Metadata = {
   },
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function LocaleLayout({
   children,
   params,
@@ -50,15 +59,27 @@ export default async function LocaleLayout({
     notFound();
   }
 
+  setRequestLocale(locale);
+
   const messages = await getMessages();
+  const tAgeGate = await getTranslations({ locale, namespace: "age_gate" });
 
   return (
     <html lang={locale}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Navbar locale={locale} />
-          <main>{children}</main>
-          <Footer locale={locale} />
+          <AgeGate
+            labels={{
+              title: tAgeGate("title"),
+              question: tAgeGate("question"),
+              yes: tAgeGate("yes"),
+              no: tAgeGate("no"),
+              deniedTitle: tAgeGate("denied_title"),
+              deniedText: tAgeGate("denied_text"),
+              legalNotice: tAgeGate("legal_notice"),
+            }}
+          />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

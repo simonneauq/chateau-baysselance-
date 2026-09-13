@@ -1,16 +1,23 @@
 {
+  "age_gate": {
+    "title": "Age verification",
+    "question": "This site features alcoholic beverages. Are you 18 or older?",
+    "yes": "Yes, I am 18 or older",
+    "no": "No",
+    "denied_title": "Access restricted",
+    "denied_text": "This site is only for people of legal drinking age.",
+    "legal_notice": "Alcohol abuse is dangerous for your health. Please drink responsibly."
+  },
   "nav": {
     "vignes": "Old Vines",
     "terroirs": "Terroirs",
     "philosophie": "Our Philosophy",
-    "vins": "The Wines",
+    "vins": "Shop",
     "frederic": "Frédéric",
-    "contact": "Contact",
-    "boutique": "Shop"
+    "contact": "Contact"
   },
   "home": {
     "hero_title": "Château Baysselance",
-    "hero_subtitle": "AOC Graves · Landiras · Bordeaux",
     "hero_tagline": "Old vines, living soils, wines that speak of their place.",
     "discover": "Discover",
     "read_more": "Read →",
@@ -18,7 +25,7 @@
     "section1_text": "Gnarled trunks, preserved genetic diversity, yields naturally regulated by the plant itself.",
     "section2_title": "A mosaic of terroirs",
     "section2_text": "Four plots, four distinct soils at the western edge of the AOC Graves appellation.",
-    "section3_title": "Working with horses",
+    "section3_title": "Viticulture that respects the soil and biodiversity",
     "section3_text": "Under-vine weeding by horse, cover crops between rows, organic certification in progress.",
     "section4_title": "Classic wines… and beyond!",
     "section4_text": "Dry Graves, botrytised sweet wine, natural sparkling, gastronomic rosé, appassimento, fortified wine…"
@@ -51,12 +58,14 @@
     "maladies_text": "Anti-mildew treatments comply with organic farming standards. Plant decoctions — particularly willow, horsetail and osier — are used to reduce copper dosages. Canopy management through spring bud removal also prevents the dense foliage that encourages disease.",
     "cheval_title": "Working with horses",
     "cheval_text": "Using horses for under-vine weeding is a deliberate choice: less soil compaction, more precision, and a different connection to the vine. It also helps preserve the microbial life in the soil, which is essential to the vine's health.",
+    "cheval_text2": "Soil work is carried out with horses. It is precise work, respectful of the old, twisted vine stocks that sometimes have to be worked around. Here, the tool adapts to the vine, not the other way round. The estate is thereby helping to revive the trade of horse-drawn ploughman, whose benefits are being rediscovered today.",
     "bio_title": "Towards organic certification",
     "bio_text": "Since 2026, the estate has been pursuing organic farming certification. No green harvesting is practised — one of the advantages of old vines is that the plant naturally regulates its own crop load, without the vigour of its youth."
   },
   "vins": {
     "title": "The Wines",
     "subtitle": "Classic wines… and beyond!",
+    "intro": "In the cellar, intervention is kept to a minimum. We simply let the grape's potential express itself.",
     "graves_sec_title": "AOC Graves Dry White",
     "graves_sec_text": "Aged in barrels for 10 months, given a silky texture through lees stirring, this is a delicate wine with floral and white fruit character. Enjoyable on its own, or paired with cheese and fish.",
     "graves_sec_origin": "Artigues",
@@ -76,7 +85,22 @@
     "mute_text": "Aged for 3 years in barrels, this wine — unique in the Bordeaux region — shows how much Sémillon reveals its aromas when you know how to wait for it…",
     "mute_origin": "Bardejats",
     "origin_label": "Origin:",
-    "boutique_soon": "Online shop — coming soon"
+    "boutique_soon": "Online shop — coming soon",
+    "technical_sheet": "Technical sheet",
+    "back_to_wines": "Back to wines",
+    "vintage_label": "Vintage",
+    "nutrition_title": "Nutrition declaration",
+    "per_100ml": "Per 100 ml",
+    "energy": "Energy",
+    "fat": "Fat",
+    "saturates": "of which saturates",
+    "carbohydrates": "Carbohydrate",
+    "sugars": "of which sugars",
+    "protein": "Protein",
+    "salt": "Salt",
+    "ingredients_title": "Ingredients",
+    "allergens_title": "Allergens",
+    "sheet_not_available": "This wine's technical sheet will be available soon."
   },
   "frederic": {
     "title": "Frédéric Baysselance",
@@ -90,7 +114,7 @@
   "contact": {
     "title": "Contact",
     "subtitle": "Château Baysselance — Landiras, Gironde",
-    "address": "Landiras, 33720 Gironde",
+    "address": "33720 Landiras, Gironde",
     "address_label": "Address",
     "appellation": "AOC Graves",
     "email_label": "Email",
@@ -100,6 +124,11 @@
     "form_send": "Send",
     "form_placeholder_name": "Your name",
     "form_placeholder_email": "your@email.com",
-    "form_placeholder_message": "Your message…"
+    "form_placeholder_message": "Your message…",
+    "form_success_title": "Message sent — thank you!",
+    "form_success_text": "Frédéric will get back to you as soon as possible.",
+    "form_error_required": "All fields are required.",
+    "form_error_email": "Invalid email address.",
+    "form_error_server": "Something went wrong while sending your message. Please try again or contact us directly by email."
   }
 }

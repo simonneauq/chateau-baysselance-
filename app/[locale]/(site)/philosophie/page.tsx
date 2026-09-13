@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Notre Philosophie",
   description:
     "Travail au cheval, enherbement, décoctions de plantes, certification biologique en cours. Une viticulture respectueuse du vivant au Château Baysselance.",
+  alternates: {
+    languages: { fr: "/fr/philosophie", en: "/en/philosophie" },
+  },
   openGraph: {
     title: "Notre Philosophie — Château Baysselance",
     images: [{ url: "/photo_8.jpg", width: 1200, height: 800 }],
   },
 };
 
-export default function PhilosophiePage() {
-  const t = useTranslations("philosophie");
+export default async function PhilosophiePage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("philosophie");
 
   return (
     <div className="pt-20">
@@ -48,14 +57,26 @@ export default function PhilosophiePage() {
           </h2>
           <p className="leading-relaxed text-[var(--charcoal)]">{t("sol_text")}</p>
         </div>
-        <div className="relative h-72 overflow-hidden">
-          <Image
-            src="/photo_6.jpg"
-            alt="Enherbement naturel entre les rangs de vignes"
-            fill
-            className="object-cover"
-            sizes="(max-width: 768px) 100vw, 50vw"
-          />
+        <div className="space-y-4">
+          <div className="relative h-56 overflow-hidden">
+            <Image
+              src="/photo_6.jpg"
+              alt="Enherbement naturel entre les rangs de vignes"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+          {/* TODO: remplacer par la photo de cheval envoyée sur WhatsApp */}
+          <div className="relative h-56 overflow-hidden">
+            <Image
+              src="/photo_7.jpg"
+              alt="Travail en équipe avec les chevaux de trait"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
         </div>
       </section>
 
@@ -76,6 +97,9 @@ export default function PhilosophiePage() {
             </h2>
             <p className="text-white/80 mt-4 max-w-lg leading-relaxed">
               {t("cheval_text")}
+            </p>
+            <p className="text-white/80 mt-4 max-w-lg leading-relaxed">
+              {t("cheval_text2")}
             </p>
           </div>
         </div>

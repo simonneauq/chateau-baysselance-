@@ -1,9 +1,13 @@
 "use server";
 
+import { Resend } from "resend";
+
 export type ContactState = {
   status: "idle" | "success" | "error";
-  message?: string;
+  errorCode?: "required" | "invalid_email" | "server";
 };
+
+const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function submitContact(
   _prevState: ContactState,
@@ -14,25 +18,43 @@ export async function submitContact(
   const message = (formData.get("message") as string | null)?.trim();
 
   if (!name || !email || !message) {
-    return { status: "error", message: "Tous les champs sont obligatoires." };
+    return { status: "error", errorCode: "required" };
   }
 
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email)) {
-    return { status: "error", message: "Adresse email invalide." };
+    return { status: "error", errorCode: "invalid_email" };
   }
 
-  // TODO: connecter un service d'envoi d'email (ex. Resend, Nodemailer)
-  // Exemple avec Resend :
-  //   const resend = new Resend(process.env.RESEND_API_KEY);
-  //   await resend.emails.send({
-  //     from: "contact@chateau-baysselance.fr",
-  //     to: "frederic@chateau-baysselance.fr",
-  //     subject: `Message de ${name}`,
-  //     text: `De : ${name} <${email}>\n\n${message}`,
-  //   });
+  const apiKey = process.env.RESEND_API_KEY;
+  const to = process.env.CONTACT_TO_EMAIL ?? "fredericbaysselance@yahoo.fr";
+  const from = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
 
-  console.log("[Contact]", { name, email, message });
+  if (!apiKey) {
+    console.warn(
+      "[Contact] RESEND_API_KEY non configurée — message journalisé uniquement."
+    );
+    console.log("[Contact]", { name, email, message });
+    return { status: "success" };
+  }
+
+  try {
+    const resend = new Resend(apiKey);
+    const { error } = await resend.emails.send({
+      from,
+      to,
+      replyTo: email,
+      subject: `Nouveau message de ${name} — Château Baysselance`,
+      text: `De : ${name} <${email}>\n\n${message}`,
+    });
+
+    if (error) {
+      console.error("[Contact] Échec d'envoi Resend:", error);
+      return { status: "error", errorCode: "server" };
+    }
+  } catch (error) {
+    console.error("[Contact] Échec d'envoi:", error);
+    return { status: "error", errorCode: "server" };
+  }
 
   return { status: "success" };
 }

@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Château Baysselance
 
-## Getting Started
+Site vitrine bilingue (FR/EN) du Château Baysselance, domaine viticole en AOC Graves à Landiras.
 
-First, run the development server:
+## Stack
+
+Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · next-intl v4
+
+## Démarrer
+
+Nécessite Node 20+ :
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+export NVM_DIR="$HOME/.nvm" && source "$NVM_DIR/nvm.sh" && nvm use 20
+
+npm install
+npm run dev      # http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Autres commandes : `npm run build`, `npm run lint`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Formulaire de contact
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Le formulaire (`app/actions/contact.ts`) envoie un email via [Resend](https://resend.com) à `fredericbaysselance@yahoo.fr` par défaut. Variable requise (fichier `.env.local`, non commité) :
 
-## Learn More
+```bash
+RESEND_API_KEY=...
+```
 
-To learn more about Next.js, take a look at the following resources:
+Sans `RESEND_API_KEY`, les messages sont seulement journalisés côté serveur (mode dégradé pour le développement local). Voir `.env.local.example` pour les variables optionnelles (`CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`) et la note sur la vérification de domaine Resend nécessaire pour envoyer à une adresse autre que celle du compte Resend.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Documentation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Voir `CLAUDE.md` pour le détail de l'architecture, des pages, des tokens de design et des conventions du projet.

@@ -1,22 +1,34 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import Link from "next/link";
+import { publishedWines } from "@/lib/wines";
 
 export const metadata: Metadata = {
   title: "Les Vins",
   description:
     "AOC Graves blanc sec et moelleux botrytisé, pétillant naturel IGP Atlantique, rosé de gastronomie, appassimento et vin muté. La gamme du Château Baysselance.",
+  alternates: {
+    languages: { fr: "/fr/vins", en: "/en/vins" },
+  },
   openGraph: {
     title: "Les Vins — Château Baysselance",
     images: [{ url: "/photo_17.jpg", width: 1200, height: 800 }],
   },
 };
 
-export default function VinsPage() {
-  const t = useTranslations("vins");
+export default async function VinsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("vins");
 
-  const wines = [
+  const wineCards = [
     {
+      slug: "graves-sec",
       title: t("graves_sec_title"),
       text: t("graves_sec_text"),
       origin: t("graves_sec_origin"),
@@ -24,6 +36,7 @@ export default function VinsPage() {
       tag: "AOC Graves",
     },
     {
+      slug: "graves-moelleux",
       title: t("graves_moelleux_title"),
       text: t("graves_moelleux_text"),
       origin: t("graves_moelleux_origin"),
@@ -31,6 +44,7 @@ export default function VinsPage() {
       tag: "AOC Graves",
     },
     {
+      slug: "rose",
       title: t("rose_title"),
       text: t("rose_text"),
       origin: t("rose_origin"),
@@ -38,6 +52,7 @@ export default function VinsPage() {
       tag: "Vin de France",
     },
     {
+      slug: "petnat",
       title: t("petnat_title"),
       text: t("petnat_text"),
       origin: t("petnat_origin"),
@@ -45,6 +60,7 @@ export default function VinsPage() {
       tag: "IGP Atlantique",
     },
     {
+      slug: "appassimento",
       title: t("appassimento_title"),
       text: t("appassimento_text"),
       origin: t("appassimento_origin"),
@@ -52,13 +68,14 @@ export default function VinsPage() {
       tag: "Vin de France",
     },
     {
+      slug: "mute",
       title: t("mute_title"),
       text: t("mute_text"),
       origin: t("mute_origin"),
       color: "brown",
       tag: "Vin de France",
     },
-  ];
+  ].filter((wine) => publishedWines.some((w) => w.slug === wine.slug));
 
   const colorMap: Record<string, string> = {
     white: "var(--fog)",
@@ -97,12 +114,20 @@ export default function VinsPage() {
         </div>
       </section>
 
+      {/* Intro */}
+      <section className="max-w-4xl mx-auto px-6 py-14">
+        <p className="font-serif italic text-xl text-[var(--green-deep)] leading-relaxed">
+          {t("intro")}
+        </p>
+      </section>
+
       {/* Wines grid */}
-      <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {wines.map((wine) => (
-          <div
-            key={wine.title}
-            className="p-8 flex flex-col"
+      <section className="max-w-7xl mx-auto px-6 pb-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {wineCards.map((wine) => (
+          <Link
+            key={wine.slug}
+            href={`/${locale}/vins/${wine.slug}`}
+            className="group p-8 flex flex-col hover:opacity-95 transition-opacity"
             style={{ backgroundColor: colorMap[wine.color] }}
           >
             <div className="flex items-start justify-between mb-4">
@@ -129,7 +154,10 @@ export default function VinsPage() {
             <p className="mt-5 text-xs text-[var(--stone)]">
               {t("origin_label")} <span className="font-medium">{wine.origin}</span>
             </p>
-          </div>
+            <p className="mt-3 text-xs tracking-widest uppercase text-[var(--gold)] group-hover:opacity-70 transition-opacity">
+              {t("technical_sheet")} →
+            </p>
+          </Link>
         ))}
       </section>
 

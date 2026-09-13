@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Frédéric Baysselance",
   description:
     "Frédéric Baysselance, vigneron à Landiras. Un projet né en 2024, des vieilles vignes reprises avec soin, un travail au cheval et une démarche de certification biologique.",
+  alternates: {
+    languages: { fr: "/fr/frederic", en: "/en/frederic" },
+  },
   openGraph: {
     title: "Frédéric Baysselance — Vigneron",
     images: [{ url: "/photo_15.jpg", width: 1200, height: 800 }],
   },
 };
 
-export default function FredericPage() {
-  const t = useTranslations("frederic");
+export default async function FredericPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("frederic");
 
   return (
     <div className="pt-20">

@@ -1,16 +1,23 @@
 {
+  "age_gate": {
+    "title": "Vérification de l'âge",
+    "question": "Ce site présente des boissons alcoolisées. Avez-vous 18 ans ou plus ?",
+    "yes": "Oui, j'ai 18 ans ou plus",
+    "no": "Non",
+    "denied_title": "Accès restreint",
+    "denied_text": "Ce site est réservé aux personnes majeures.",
+    "legal_notice": "L'abus d'alcool est dangereux pour la santé, à consommer avec modération."
+  },
   "nav": {
     "vignes": "Vieilles Vignes",
     "terroirs": "Terroirs",
     "philosophie": "Notre Philosophie",
-    "vins": "Les Vins",
+    "vins": "Boutique",
     "frederic": "Frédéric",
-    "contact": "Contact",
-    "boutique": "Boutique"
+    "contact": "Contact"
   },
   "home": {
     "hero_title": "Château Baysselance",
-    "hero_subtitle": "AOC Graves · Landiras · Bordeaux",
     "hero_tagline": "Des vieilles vignes, un terroir vivant, des vins qui racontent leur lieu.",
     "discover": "Découvrir",
     "read_more": "Lire →",
@@ -18,7 +25,7 @@
     "section1_text": "Des ceps noueux, une diversité génétique préservée, des rendements maîtrisés par la nature elle-même.",
     "section2_title": "Une mosaïque de terroirs",
     "section2_text": "Quatre parcelles, quatre sols aux caractères bien distincts, à l'extrémité ouest de l'AOC Graves.",
-    "section3_title": "Un travail au cheval",
+    "section3_title": "Une viticulture respectueuse des sols et de la biodiversité",
     "section3_text": "Désherbage sous le rang à cheval, enherbement entre les rangs, une démarche de certification bio en cours.",
     "section4_title": "Des vins classiques… ou pas !",
     "section4_text": "Graves sec, moelleux botrytisé, pétillant naturel, rosé de gastronomie, appassimento, vin muté…"
@@ -34,7 +41,7 @@
     "subtitle": "4 parcelles pour 4 sols aux spécificités bien marquées",
     "intro": "La géologie de l'endroit a engendré une mosaïque de sols, que les vignerons ont de longue date identifiée. Ils ont délimité les parcelles en conséquence.",
     "bardejats_title": "Bardejats",
-    "bardejats_text": "Extrémité sud du domaine. Sur une pente légère exposée au Nord, parfaite dans un contexte de réchauffement climatique, le sol est argilo-calcaire typique du bordelais. La parcelle produit des raisins concentrés et riches, parfaits pour un liquoreux.",
+    "bardejats_text": "Extrémité sud du domaine. Sur une pente légère exposée au Nord, parfaite dans un contexte de réchauffement climatique, le sol est argilo-calcaire typique du Bordelais. La parcelle produit des raisins concentrés et riches, parfaits pour un liquoreux.",
     "claux_title": "Les Claux",
     "claux_text": "En contrebas de Bardejats, sur un sol argilo-limoneux plus frais. Il produit des raisins moins chargés en sucre, donc des vins moins riches en alcool. Le pétillant naturel en est issu.",
     "artigues_title": "Artigues",
@@ -51,17 +58,19 @@
     "maladies_text": "Les traitements anti-mildiou respectent le cahier des charges de l'agriculture biologique. Des décoctions de plantes sont utilisées afin de diminuer les doses de cuivre — notamment le saule, la prêle et l'osier. L'accent est également mis sur l'aération du feuillage, grâce à l'ébourgeonnage de printemps, afin d'éviter les entassements de végétation favorables à l'apparition des maladies.",
     "cheval_title": "Le travail au cheval",
     "cheval_text": "L'utilisation du cheval pour le désherbage sous le rang est un choix délibéré : moins de tassement du sol, plus de précision, et un lien différent avec la vigne. C'est aussi une façon de préserver la vie microbienne du sol, essentielle à la bonne santé de la vigne.",
+    "cheval_text2": "L'entretien du sol est réalisé au cheval. Le travail est précis, respectueux des vieux ceps tortueux qu'il faut parfois contourner. C'est l'outil qui s'adapte à la vigne et non l'inverse. Le domaine contribue ainsi au renouveau du métier de laboureur à cheval dont on redécouvre aujourd'hui les avantages.",
     "bio_title": "Vers la certification biologique",
     "bio_text": "Depuis 2026, une démarche de certification en agriculture biologique est entamée. Pas de vendanges en vert au domaine : c'est l'avantage des vieilles vignes, la charge en raisins est naturellement régulée par la plante, qui n'a plus la fougue de ses vingt ans !"
   },
   "vins": {
     "title": "Les Vins",
     "subtitle": "Une gamme classique… ou pas !",
+    "intro": "En cave les interventions sont minimales. On veille simplement à laisser s'exprimer le potentiel du raisin.",
     "graves_sec_title": "AOC Graves Blanc Sec",
     "graves_sec_text": "Élevé en barriques pendant 10 mois, rendu onctueux grâce au bâtonnage des lies fines, un vin délicat sur la fleur et les fruits blancs. À boire tout seul pour lui-même, mais aussi sur des fromages ou des poissons.",
     "graves_sec_origin": "Artigues",
     "graves_moelleux_title": "AOC Graves Moelleux",
-    "graves_moelleux_text": "Issu de vendanges botrytisées, récoltées par tries successives de fin septembre à fin octobre. Une cuvée confidentielle, produite uniquement les années propices. Concentration et complexite sont les maîtres mots.",
+    "graves_moelleux_text": "Issu de vendanges botrytisées, récoltées par tries successives de fin septembre à fin octobre. Une cuvée confidentielle, produite uniquement les années propices. Concentration et complexité sont les maîtres mots.",
     "graves_moelleux_origin": "Bardejats",
     "rose_title": "Vin de France Rosé",
     "rose_text": "Un rosé de gastronomie, passé par un élevage discret en barrique ancienne — non marqué par le bois, mais avec une belle rondeur et une aromatique riche. Parfait à l'apéritif, mais également au repas sur des cuisines épicées.",
@@ -76,7 +85,22 @@
     "mute_text": "Vieilli 3 ans en barriques, ce vin unique en Bordelais nous montre combien le sémillon révèle ses arômes lorsque l'on sait l'attendre…",
     "mute_origin": "Bardejats",
     "origin_label": "Origine :",
-    "boutique_soon": "Boutique en ligne — bientôt disponible"
+    "boutique_soon": "Boutique en ligne — bientôt disponible",
+    "technical_sheet": "Fiche technique",
+    "back_to_wines": "Retour aux vins",
+    "vintage_label": "Millésime",
+    "nutrition_title": "Déclaration nutritionnelle",
+    "per_100ml": "Pour 100 ml",
+    "energy": "Énergie",
+    "fat": "Matières grasses",
+    "saturates": "dont acides gras saturés",
+    "carbohydrates": "Glucides",
+    "sugars": "dont sucres",
+    "protein": "Protéines",
+    "salt": "Sel",
+    "ingredients_title": "Ingrédients",
+    "allergens_title": "Allergènes",
+    "sheet_not_available": "La fiche technique de ce vin sera bientôt disponible."
   },
   "frederic": {
     "title": "Frédéric Baysselance",
@@ -84,13 +108,13 @@
     "p1": "Le Château Baysselance est né en 2024 d'un rêve simple : cultiver la vigne autrement, dans le respect du vivant. Frédéric Baysselance a acquis quatre parcelles sur la commune de Landiras, à l'extrémité ouest du vignoble des Graves, là où les derniers rangs de vignes cèdent la place à la forêt de pins des Landes.",
     "p2": "Fasciné par la diversité des terroirs et convaincu que la vigne doit être conduite avec patience et humilité, Frédéric a choisi dès le début de travailler au cheval — une décision à contre-courant, mais qui reflète une philosophie profonde : s'adapter au rythme de la nature plutôt que de lui imposer le sien.",
     "p3": "Les vieilles vignes qu'il a reprises sont un héritage précieux. Leurs ceps noueux portent la mémoire du vignoble bordelais, une diversité génétique que la sélection clonale moderne a bien souvent sacrifiée au profit du rendement. Ici, c'est la plante qui décide.",
-    "p4": "Depuis 2026, le domaine est engagé dans une démarche de certification agriculture biologique — une étape naturelle pour quelqu'un qui n'a jamais cherché à faire autrement.",
+    "p4": "Depuis 2026, le domaine est engagé dans une démarche de certification en agriculture biologique — une étape naturelle pour quelqu'un qui n'a jamais cherché à faire autrement.",
     "quote": "\"La vigne, ça s'écoute. Quand on apprend à l'observer, elle vous dit tout ce dont elle a besoin.\""
   },
   "contact": {
     "title": "Contact",
     "subtitle": "Château Baysselance — Landiras, Gironde",
-    "address": "Landiras, 33720 Gironde",
+    "address": "33720 Landiras, Gironde",
     "address_label": "Adresse",
     "appellation": "AOC Graves",
     "email_label": "Email",
@@ -100,6 +124,11 @@
     "form_send": "Envoyer",
     "form_placeholder_name": "Votre nom",
     "form_placeholder_email": "votre@email.com",
-    "form_placeholder_message": "Votre message…"
+    "form_placeholder_message": "Votre message…",
+    "form_success_title": "Message envoyé — merci !",
+    "form_success_text": "Frédéric vous répondra dans les meilleurs délais.",
+    "form_error_required": "Tous les champs sont obligatoires.",
+    "form_error_email": "Adresse email invalide.",
+    "form_error_server": "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement par email."
   }
 }

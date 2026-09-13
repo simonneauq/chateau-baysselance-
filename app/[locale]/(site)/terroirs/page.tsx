@@ -1,19 +1,28 @@
 import type { Metadata } from "next";
-import { useTranslations } from "next-intl";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Terroirs",
   description:
     "Quatre parcelles, quatre sols : Bardejats, Les Claux, Artigues. Un socle calcaire commun qui donne fraîcheur et minéralité aux vins du Château Baysselance.",
+  alternates: {
+    languages: { fr: "/fr/terroirs", en: "/en/terroirs" },
+  },
   openGraph: {
     title: "Terroirs — Château Baysselance",
-    images: [{ url: "/photo_16.jpg", width: 1200, height: 800 }],
+    images: [{ url: "/photo_14.jpg", width: 1200, height: 800 }],
   },
 };
 
-export default function TerroirsPage() {
-  const t = useTranslations("terroirs");
+export default async function TerroirsPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+  const t = await getTranslations("terroirs");
 
   const parcelles = [
     {
@@ -36,10 +45,11 @@ export default function TerroirsPage() {
   return (
     <div className="pt-20">
       {/* Hero */}
+      {/* TODO: remplacer par une photo de coupe de sol ou de parcelle (juin) */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
         <Image
-          src="/photo_16.jpg"
-          alt="Vignes dans la brume automnale avec clocher"
+          src="/photo_14.jpg"
+          alt="Vallée viticole dans la brume matinale"
           fill
           className="object-cover"
           priority
