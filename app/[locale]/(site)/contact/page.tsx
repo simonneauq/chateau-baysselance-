@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import Image from "next/image";
+import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default async function ContactPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("contact");
+  const tAlt = await getTranslations("alt");
 
   return (
     <div className="pt-20">
@@ -31,7 +33,7 @@ export default async function ContactPage({
       <section className="relative h-[40vh] min-h-[300px] flex items-end">
         <Image
           src="/photo_10.jpg"
-          alt="Coucher de soleil sur les vignes"
+          alt={tAlt("contact_hero")}
           fill
           className="object-cover"
           priority
@@ -70,7 +72,7 @@ export default async function ContactPage({
           <div className="mt-12 relative h-64 overflow-hidden">
             <Image
               src="/photo_16.jpg"
-              alt="Château Baysselance — Landiras"
+              alt={tAlt("contact_estate")}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -93,6 +95,10 @@ export default async function ContactPage({
             errorRequired: t("form_error_required"),
             errorEmail: t("form_error_email"),
             errorServer: t("form_error_server"),
+            requiredLegend: t("form_required_legend"),
+            privacyNotice: t.rich("form_privacy_notice", {
+              link: (chunks) => <Link href={`/${locale}/confidentialite`}>{chunks}</Link>,
+            }),
           }}
         />
       </section>

@@ -25,6 +25,7 @@ export default async function VinsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("vins");
+  const tAlt = await getTranslations("alt");
 
   const wineCards = [
     {
@@ -101,7 +102,7 @@ export default async function VinsPage({
       <section className="relative h-[55vh] min-h-[380px] flex items-end">
         <Image
           src="/photo_17.jpg"
-          alt="Raisins blancs sémillon à maturité"
+          alt={tAlt("white_grapes")}
           fill
           className="object-cover"
           priority
@@ -154,7 +155,7 @@ export default async function VinsPage({
             <p className="mt-5 text-xs text-[var(--stone)]">
               {t("origin_label")} <span className="font-medium">{wine.origin}</span>
             </p>
-            <p className="mt-3 text-xs tracking-widest uppercase text-[var(--gold)] group-hover:opacity-70 transition-opacity">
+            <p className="mt-3 text-xs tracking-widest uppercase text-[var(--gold-text)] group-hover:opacity-70 transition-opacity">
               {t("technical_sheet")} →
             </p>
           </Link>
@@ -166,7 +167,7 @@ export default async function VinsPage({
         <div className="relative h-64">
           <Image
             src="/photo_21.jpg"
-            alt="Vendange manuelle au Château Baysselance"
+            alt={tAlt("harvest")}
             fill
             className="object-cover object-top"
             sizes="100vw"

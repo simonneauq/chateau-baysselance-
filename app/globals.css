@@ -1,15 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 :root {
   --cream: #faf7f2;
   --gold: #c9a355;
   --gold-light: #e8c87a;
+  /* Darker gold for small text on cream/fog backgrounds (WCAG AA contrast). */
+  --gold-text: #7d6128;
   --green-deep: #1e3528;
   --green-mid: #2d5a3d;
   --earth: #6b4c35;
   --charcoal: #2c2c2c;
-  --stone: #8a8070;
+  --stone: #6f6658;
   --fog: #f0ece4;
 }
 
@@ -24,20 +25,26 @@ html {
 body {
   background-color: var(--cream);
   color: var(--charcoal);
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-inter), sans-serif;
   font-weight: 300;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair), serif;
   font-weight: 400;
   line-height: 1.2;
 }
 
 .font-serif {
-  font-family: 'Playfair Display', serif;
+  font-family: var(--font-playfair), serif;
+}
+
+/* Keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
 }
 
 /* Scrollbar */

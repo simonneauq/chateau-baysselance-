@@ -23,6 +23,7 @@ export default async function FredericPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("frederic");
+  const tAlt = await getTranslations("alt");
 
   return (
     <div className="pt-20">
@@ -30,7 +31,7 @@ export default async function FredericPage({
       <section className="relative h-[65vh] min-h-[450px] flex items-end">
         <Image
           src="/photo_15.jpg"
-          alt="Frédéric Baysselance dans son chai"
+          alt={tAlt("frederic_cellar")}
           fill
           className="object-cover object-center"
           priority
@@ -68,10 +69,10 @@ export default async function FredericPage({
       {/* Photos */}
       <section className="max-w-7xl mx-auto px-6 pb-16 grid grid-cols-2 md:grid-cols-4 gap-3">
         {[
-          { src: "/photo_21.jpg", alt: "Vendange manuelle au Château Baysselance" },
-          { src: "/photo_20.jpg", alt: "Raisins blancs dans le pressoir ancien en bois" },
-          { src: "/photo_7.jpg", alt: "Travail en équipe avec les chevaux de trait en hiver" },
-          { src: "/photo_22.jpg", alt: "Chevreuil dans les vignes du Château Baysselance" },
+          { src: "/photo_21.jpg", alt: tAlt("harvest") },
+          { src: "/photo_20.jpg", alt: tAlt("press") },
+          { src: "/photo_7.jpg", alt: tAlt("horses_winter") },
+          { src: "/photo_22.jpg", alt: tAlt("deer_estate") },
         ].map(({ src, alt }) => (
           <div key={src} className="relative h-56 overflow-hidden">
             <Image

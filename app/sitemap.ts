@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { routing } from "@/i18n/routing";
+import { publishedWines } from "@/lib/wines";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://chateaubaysselance.fr";
 
@@ -11,6 +12,9 @@ const paths = [
   "/vins",
   "/frederic",
   "/contact",
+  "/mentions-legales",
+  "/confidentialite",
+  ...publishedWines.map((wine) => `/vins/${wine.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

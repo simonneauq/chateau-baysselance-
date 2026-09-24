@@ -23,6 +23,7 @@ export default async function VieuillesVignesPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("vignes");
+  const tAlt = await getTranslations("alt");
 
   return (
     <div className="pt-20">
@@ -30,7 +31,7 @@ export default async function VieuillesVignesPage({
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
         <Image
           src="/photo_10.jpg"
-          alt="Vignes au coucher du soleil en hiver"
+          alt={tAlt("vignes_hero")}
           fill
           className="object-cover"
           priority
@@ -58,7 +59,7 @@ export default async function VieuillesVignesPage({
             <div className="relative h-80 overflow-hidden">
               <Image
                 src="/photo_3.jpg"
-                alt="Givre sur les sarments de vigne"
+                alt={tAlt("frost")}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -67,7 +68,7 @@ export default async function VieuillesVignesPage({
             <div className="relative h-64 overflow-hidden">
               <Image
                 src="/photo_6.jpg"
-                alt="Fleurs entre les rangs de vieilles vignes"
+                alt={tAlt("flowers")}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
@@ -81,7 +82,7 @@ export default async function VieuillesVignesPage({
       <section className="relative h-64 overflow-hidden">
         <Image
           src="/photo_19.jpg"
-          alt="Grappes de raisins noirs sur vieille vigne"
+          alt={tAlt("black_grapes")}
           fill
           className="object-cover object-center"
           sizes="100vw"

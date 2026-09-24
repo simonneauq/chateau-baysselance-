@@ -12,7 +12,7 @@
     "vignes": "Old Vines",
     "terroirs": "Terroirs",
     "philosophie": "Our Philosophy",
-    "vins": "Shop",
+    "vins": "Wines",
     "frederic": "Frédéric",
     "contact": "Contact"
   },
@@ -33,7 +33,7 @@
   "vignes": {
     "title": "A heritage of old vines",
     "intro": "Their exact age is unknown. They may have been planted after the devastating frosts of 1956 that decimated the Bordeaux vineyards. But without knowing their precise planting date, their gnarled trunks speak for themselves…",
-    "p1": "Old vines have nothing but advantages: naturally controlled yields, deep root systems that resist summer drought and draw minerals from lower soil layers, smaller grapes that are more concentrated and less susceptible to disease.",
+    "p1": "Old vines offer many advantages: naturally controlled yields, deep root systems that resist summer drought and draw minerals from lower soil layers, smaller grapes that are more concentrated and less susceptible to disease.",
     "p2": "These are massal selections — grown from plants that previous winemakers had empirically identified as producing the best juice. This means genuine genetic diversity, far removed from clonal selection where a single individual is replicated thousands of times, impoverishing the genetic heritage of the varietal."
   },
   "terroirs": {
@@ -76,13 +76,13 @@
     "rose_text": "A gastronomic rosé, given a discreet ageing in old barrels — without oak influence, but with lovely roundness and rich aromatics. Perfect as an aperitif, and equally at home with spiced cuisine.",
     "rose_origin": "Artigues",
     "petnat_title": "Natural Sparkling — IGP Atlantique",
-    "petnat_text": "First and foremost a wine of pleasure. To be drunk young, its low alcohol and vivid fresh aromas make it a delightful summer wine.",
+    "petnat_text": "To be drunk young. Grown on the cool soil of Les Claux, it has a low alcohol content and very fresh aromas. Serve well chilled.",
     "petnat_origin": "Les Claux",
     "appassimento_title": "Vin de France Appassimento",
-    "appassimento_text": "A nod to our Italian friends! A gem made from fully ripe grapes air-dried for 2 to 3 weeks before pressing. The aromas stay fresh while the juice concentrates.",
+    "appassimento_text": "A nod to our Italian friends! Made from fully ripe grapes air-dried for 2 to 3 weeks before pressing. The aromas stay fresh while the juice concentrates.",
     "appassimento_origin": "Bardejats",
     "mute_title": "Vin de France Fortified",
-    "mute_text": "Aged for 3 years in barrels, this wine — unique in the Bordeaux region — shows how much Sémillon reveals its aromas when you know how to wait for it…",
+    "mute_text": "Aged for 3 years in barrels, this wine — rare in the Bordeaux region — shows how much Sémillon reveals its aromas when you know how to wait for it…",
     "mute_origin": "Bardejats",
     "origin_label": "Origin:",
     "boutique_soon": "Online shop — coming soon",
@@ -129,6 +129,40 @@
     "form_success_text": "Frédéric will get back to you as soon as possible.",
     "form_error_required": "All fields are required.",
     "form_error_email": "Invalid email address.",
-    "form_error_server": "Something went wrong while sending your message. Please try again or contact us directly by email."
+    "form_error_server": "Something went wrong while sending your message. Please try again or contact us directly by email.",
+    "form_required_legend": "All fields marked with * are required.",
+    "form_privacy_notice": "Your name, email and message are used only to reply to your request; they are never used for marketing or passed on to third parties. To learn more and exercise your rights, see our <link>privacy policy</link>."
+  },
+  "legal": {
+    "mentions_title": "Legal notice",
+    "privacy_title": "Privacy policy",
+    "cookies_link": "Cookies",
+    "updated": "Last updated: 24 September 2026",
+    "health_warning": "Alcohol abuse is dangerous for your health. Please drink responsibly."
+  },
+  "alt": {
+    "home_hero": "Château Baysselance vineyard at sunset",
+    "deer": "Roe deer in the vineyard",
+    "contact_hero": "Sunset over the vineyard",
+    "contact_estate": "Château Baysselance — Landiras",
+    "vignes_hero": "Vines at sunset in winter",
+    "frost": "Frost on the vine shoots",
+    "flowers": "Flowers between the rows of old vines",
+    "black_grapes": "Bunches of black grapes on an old vine",
+    "philo_hero": "Draught horse at work in the vineyard",
+    "grass": "Natural grass cover between the vine rows",
+    "horses_team": "Teamwork with the draught horses",
+    "two_horses": "Two draught horses in the vineyard",
+    "horse_spring": "Draught horse ploughing under the vine row in spring",
+    "horse_summer": "Draught horse in the vineyard in summer",
+    "horse_portrait": "Portrait of a harnessed draught horse in the vineyard",
+    "terroirs_hero": "Wine valley in the morning mist",
+    "autumn_mist": "Vines in the morning mist in autumn",
+    "frederic_cellar": "Frédéric Baysselance in his cellar",
+    "white_grapes": "Ripe white Sémillon grapes",
+    "harvest": "Hand harvesting at Château Baysselance",
+    "press": "White grapes in the old wooden press",
+    "horses_winter": "Teamwork with the draught horses in winter",
+    "deer_estate": "Roe deer in the Château Baysselance vineyard"
   }
 }

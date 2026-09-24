@@ -26,7 +26,9 @@ export async function submitContact(
   }
 
   const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL ?? "fredericbaysselance@yahoo.fr";
+  // The recipient lives only in the environment (never in the code) so the
+  // address is not exposed to spam harvesters if the repository is published.
+  const to = process.env.CONTACT_TO_EMAIL;
   const from = process.env.CONTACT_FROM_EMAIL ?? "onboarding@resend.dev";
 
   if (!apiKey) {
@@ -35,6 +37,11 @@ export async function submitContact(
     );
     console.log("[Contact]", { name, email, message });
     return { status: "success" };
+  }
+
+  if (!to) {
+    console.error("[Contact] CONTACT_TO_EMAIL non configurée — message non envoyé.");
+    return { status: "error", errorCode: "server" };
   }
 
   try {

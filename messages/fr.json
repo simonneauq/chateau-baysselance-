@@ -12,7 +12,7 @@
     "vignes": "Vieilles Vignes",
     "terroirs": "Terroirs",
     "philosophie": "Notre Philosophie",
-    "vins": "Boutique",
+    "vins": "Les Vins",
     "frederic": "Frédéric",
     "contact": "Contact"
   },
@@ -33,7 +33,7 @@
   "vignes": {
     "title": "Un patrimoine de vieilles vignes",
     "intro": "On n'en connaît pas précisément l'âge. Elles pourraient avoir été plantées après les gelées de 1956 qui ont décimé le vignoble. Mais sans connaître leur date précise de plantation, leurs ceps noueux parlent pour elles…",
-    "p1": "Les vieilles vignes n'ont que des avantages : rendements naturellement maîtrisés, enracinement profond garant d'une bonne résistance à la sécheresse estivale et d'une capacité à puiser les minéraux présents dans les couches inférieures du sol, raisins plus petits, plus concentrés et moins sensibles aux maladies.",
+    "p1": "Les vieilles vignes présentent de nombreux avantages : rendements naturellement maîtrisés, enracinement profond garant d'une bonne résistance à la sécheresse estivale et d'une capacité à puiser les minéraux présents dans les couches inférieures du sol, raisins plus petits, plus concentrés et moins sensibles aux maladies.",
     "p2": "Ce sont évidemment des sélections massales, issues des plants que les vignerons avaient empiriquement identifiés comme donnant les meilleurs jus. Il y a donc une diversité génétique dans cette parcelle, loin de la logique de sélection clonale où l'on plante un seul individu répliqué par milliers, appauvrissant d'autant le patrimoine génétique des cépages."
   },
   "terroirs": {
@@ -76,13 +76,13 @@
     "rose_text": "Un rosé de gastronomie, passé par un élevage discret en barrique ancienne — non marqué par le bois, mais avec une belle rondeur et une aromatique riche. Parfait à l'apéritif, mais également au repas sur des cuisines épicées.",
     "rose_origin": "Artigues",
     "petnat_title": "Pétillant Naturel — IGP Atlantique",
-    "petnat_text": "D'abord un vin de plaisir. À boire jeune, son faible degré alcoolique et la grande fraîcheur de ses arômes en font un délicieux vin d'été.",
+    "petnat_text": "À boire jeune. Issu du sol frais des Claux, il présente un faible degré alcoolique et des arômes d'une grande fraîcheur. À servir bien frais.",
     "petnat_origin": "Les Claux",
     "appassimento_title": "Vin de France Appassimento",
-    "appassimento_text": "Un clin d'œil à nos amis italiens ! Un bonbon issu de raisins récoltés à maturité mais passerillés au vent pendant 2 à 3 semaines avant pressurage. Les arômes restent frais, mais le jus se concentre.",
+    "appassimento_text": "Un clin d'œil à nos amis italiens ! Issu de raisins récoltés à maturité puis passerillés au vent pendant 2 à 3 semaines avant pressurage. Les arômes restent frais, mais le jus se concentre.",
     "appassimento_origin": "Bardejats",
     "mute_title": "Vin de France Muté",
-    "mute_text": "Vieilli 3 ans en barriques, ce vin unique en Bordelais nous montre combien le sémillon révèle ses arômes lorsque l'on sait l'attendre…",
+    "mute_text": "Vieilli 3 ans en barriques, ce vin rare en Bordelais montre combien le sémillon révèle ses arômes lorsque l'on sait l'attendre…",
     "mute_origin": "Bardejats",
     "origin_label": "Origine :",
     "boutique_soon": "Boutique en ligne — bientôt disponible",
@@ -129,6 +129,40 @@
     "form_success_text": "Frédéric vous répondra dans les meilleurs délais.",
     "form_error_required": "Tous les champs sont obligatoires.",
     "form_error_email": "Adresse email invalide.",
-    "form_error_server": "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement par email."
+    "form_error_server": "Une erreur est survenue lors de l'envoi. Merci de réessayer ou de nous contacter directement par email.",
+    "form_required_legend": "Tous les champs marqués d'un * sont obligatoires.",
+    "form_privacy_notice": "Vos nom, email et message servent uniquement à répondre à votre demande et ne sont jamais utilisés à des fins commerciales ni cédés à des tiers. Pour en savoir plus et exercer vos droits : <link>politique de confidentialité</link>."
+  },
+  "legal": {
+    "mentions_title": "Mentions légales",
+    "privacy_title": "Politique de confidentialité",
+    "cookies_link": "Cookies",
+    "updated": "Dernière mise à jour : 24 septembre 2026",
+    "health_warning": "L'abus d'alcool est dangereux pour la santé, à consommer avec modération."
+  },
+  "alt": {
+    "home_hero": "Vignes du Château Baysselance au coucher du soleil",
+    "deer": "Chevreuil dans les vignes",
+    "contact_hero": "Coucher de soleil sur les vignes",
+    "contact_estate": "Château Baysselance — Landiras",
+    "vignes_hero": "Vignes au coucher du soleil en hiver",
+    "frost": "Givre sur les sarments de vigne",
+    "flowers": "Fleurs entre les rangs de vieilles vignes",
+    "black_grapes": "Grappes de raisins noirs sur vieille vigne",
+    "philo_hero": "Cheval de trait au travail dans les vignes",
+    "grass": "Enherbement naturel entre les rangs de vignes",
+    "horses_team": "Travail en équipe avec les chevaux de trait",
+    "two_horses": "Deux chevaux de trait dans les vignes",
+    "horse_spring": "Cheval de trait labourant sous le rang au printemps",
+    "horse_summer": "Cheval de trait dans les vignes en été",
+    "horse_portrait": "Portrait d'un cheval de trait en harnais dans les vignes",
+    "terroirs_hero": "Vallée viticole dans la brume matinale",
+    "autumn_mist": "Vignes avec brume matinale en automne",
+    "frederic_cellar": "Frédéric Baysselance dans son chai",
+    "white_grapes": "Raisins blancs sémillon à maturité",
+    "harvest": "Vendange manuelle au Château Baysselance",
+    "press": "Raisins blancs dans le pressoir ancien en bois",
+    "horses_winter": "Travail en équipe avec les chevaux de trait en hiver",
+    "deer_estate": "Chevreuil dans les vignes du Château Baysselance"
   }
 }

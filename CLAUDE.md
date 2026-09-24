@@ -31,8 +31,9 @@ The project root directory name contains capital letters/underscores — `create
 - `/[locale]/vins` — 6 wines (AOC Graves sec/moelleux, rosé, pétillant naturel, appassimento, muté)
 - `/[locale]/frederic` — Frédéric Baysselance bio + quote
 - `/[locale]/contact` — Address + contact form
+- `/[locale]/mentions-legales` and `/[locale]/confidentialite` (privacy + `#cookies` section) — legal pages; content lives in the page files (FR/EN branches), `[À COMPLÉTER]` placeholders use `ToFill` from `components/LegalPage.tsx`
 
-**Components:** `Navbar.tsx` (client component — handles mobile menu + locale switcher) and `Footer.tsx` (server component).
+**Components:** `Navbar.tsx` (client component — handles mobile menu + locale switcher) and `Footer.tsx` (server component; exports `LegalLinks`, also used on the `/etiquette` QR pages). Every page must show the legal links and the alcohol health warning (`legal.health_warning`).
 
 **Photos:** 22 JPEG photos in `public/photo_1.jpg` → `photo_22.jpg`. Key assignments:
 - `photo_1` — sunset vineyard spring (homepage hero)
@@ -52,9 +53,10 @@ The project root directory name contains capital letters/underscores — `create
 - `--green-mid` #2d5a3d — hover states
 - `--fog` #f0ece4 — card backgrounds
 - `--earth` #6b4c35 — secondary accent
-- `--stone` #8a8070 — muted text
+- `--stone` #6f6658 — muted text (darkened for WCAG AA contrast)
+- `--gold-text` #7d6128 — gold for small text on light backgrounds (`--gold` fails contrast there)
 
-**Fonts:** Playfair Display (serif, headings) + Inter (sans-serif, body) loaded from Google Fonts in `globals.css`.
+**Fonts:** Playfair Display (serif, headings) + Inter (sans-serif, body), self-hosted via `next/font/google` in `app/[locale]/layout.tsx` (CSS variables `--font-playfair` / `--font-inter`). Never load fonts or scripts from third-party domains: the site deliberately has no cookie banner because it sets no non-essential tracker.
 
 ## Boutique en ligne
 

@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { getWine, publishedWines } from "@/lib/wines";
 import WineSheet from "@/components/WineSheet";
+import { LegalLinks } from "@/components/Footer";
 
 export function generateStaticParams() {
   return publishedWines.map((wine) => ({ slug: wine.slug }));
@@ -38,22 +39,26 @@ export default async function WineLabelPage({
     notFound();
   }
 
+  const tLegal = await getTranslations("legal");
+
   return (
     <div className="min-h-screen flex flex-col bg-[var(--cream)]">
-      <div className="flex-1 max-w-3xl mx-auto px-6 py-16 w-full">
+      <main className="flex-1 max-w-3xl mx-auto px-6 py-16 w-full">
         <p className="font-serif text-lg text-[var(--green-deep)] mb-8">
           Château Baysselance
         </p>
         <div className="w-8 h-0.5 bg-[var(--gold)] mb-6" />
 
         <WineSheet wine={wine} locale={locale} />
-      </div>
+      </main>
 
       <footer
-        style={{ backgroundColor: "var(--green-deep)", color: "rgba(255,255,255,0.5)" }}
-        className="py-6 text-center text-xs"
+        style={{ backgroundColor: "var(--green-deep)", color: "rgba(255,255,255,0.7)" }}
+        className="py-6 px-6 text-center text-xs space-y-3"
       >
-        AOC Graves · Landiras, Gironde
+        <p>AOC Graves · Landiras, Gironde</p>
+        <LegalLinks locale={locale} />
+        <p>{tLegal("health_warning")}</p>
       </footer>
     </div>
   );

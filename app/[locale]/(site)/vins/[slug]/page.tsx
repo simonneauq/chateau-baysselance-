@@ -52,7 +52,7 @@ export default async function WineDetailPage({
       <div className="max-w-3xl mx-auto px-6">
         <Link
           href={`/${locale}/vins`}
-          className="text-xs tracking-widest uppercase text-[var(--gold)] hover:opacity-70 transition-opacity"
+          className="text-xs tracking-widest uppercase text-[var(--gold-text)] hover:opacity-70 transition-opacity"
         >
           ← {t("back_to_wines")}
         </Link>

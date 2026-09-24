@@ -23,6 +23,7 @@ export default async function PhilosophiePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("philosophie");
+  const tAlt = await getTranslations("alt");
 
   return (
     <div className="pt-20">
@@ -30,7 +31,7 @@ export default async function PhilosophiePage({
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
         <Image
           src="/photo_8.jpg"
-          alt="Cheval de trait au travail dans les vignes"
+          alt={tAlt("philo_hero")}
           fill
           className="object-cover object-top"
           priority
@@ -61,7 +62,7 @@ export default async function PhilosophiePage({
           <div className="relative h-56 overflow-hidden">
             <Image
               src="/photo_6.jpg"
-              alt="Enherbement naturel entre les rangs de vignes"
+              alt={tAlt("grass")}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -71,7 +72,7 @@ export default async function PhilosophiePage({
           <div className="relative h-56 overflow-hidden">
             <Image
               src="/photo_7.jpg"
-              alt="Travail en équipe avec les chevaux de trait"
+              alt={tAlt("horses_team")}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
@@ -84,7 +85,7 @@ export default async function PhilosophiePage({
       <section className="relative h-80 md:h-[500px]">
         <Image
           src="/photo_9.jpg"
-          alt="Deux chevaux de trait dans les vignes"
+          alt={tAlt("two_horses")}
           fill
           className="object-cover object-center"
           sizes="100vw"
@@ -128,9 +129,9 @@ export default async function PhilosophiePage({
       {/* Photo horses */}
       <section className="max-w-7xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-3 gap-4">
         {[
-          { src: "/photo_2.jpg", alt: "Cheval de trait labourant sous le rang au printemps" },
-          { src: "/photo_4.jpg", alt: "Cheval de trait dans les vignes en été" },
-          { src: "/photo_12.jpg", alt: "Portrait d'un cheval de trait en harnais dans les vignes" },
+          { src: "/photo_2.jpg", alt: tAlt("horse_spring") },
+          { src: "/photo_4.jpg", alt: tAlt("horse_summer") },
+          { src: "/photo_12.jpg", alt: tAlt("horse_portrait") },
         ].map(({ src, alt }) => (
           <div key={src} className="relative h-72 overflow-hidden">
             <Image

@@ -23,6 +23,7 @@ export default async function TerroirsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("terroirs");
+  const tAlt = await getTranslations("alt");
 
   const parcelles = [
     {
@@ -49,7 +50,7 @@ export default async function TerroirsPage({
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
         <Image
           src="/photo_14.jpg"
-          alt="Vallée viticole dans la brume matinale"
+          alt={tAlt("terroirs_hero")}
           fill
           className="object-cover"
           priority
@@ -99,7 +100,7 @@ export default async function TerroirsPage({
       <section className="relative h-72 md:h-96 overflow-hidden">
         <Image
           src="/photo_13.jpg"
-          alt="Vignes avec brume matinale en automne"
+          alt={tAlt("autumn_mist")}
           fill
           className="object-cover"
           sizes="100vw"

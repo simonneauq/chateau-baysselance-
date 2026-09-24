@@ -21,13 +21,14 @@ Autres commandes : `npm run build`, `npm run lint`.
 
 ## Formulaire de contact
 
-Le formulaire (`app/actions/contact.ts`) envoie un email via [Resend](https://resend.com) à `fredericbaysselance@yahoo.fr` par défaut. Variable requise (fichier `.env.local`, non commité) :
+Le formulaire (`app/actions/contact.ts`) envoie un email via [Resend](https://resend.com) à l'adresse définie dans `CONTACT_TO_EMAIL`. Variables requises (fichier `.env.local`, non commité) :
 
 ```bash
 RESEND_API_KEY=...
+CONTACT_TO_EMAIL=...
 ```
 
-Sans `RESEND_API_KEY`, les messages sont seulement journalisés côté serveur (mode dégradé pour le développement local). Voir `.env.local.example` pour les variables optionnelles (`CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`) et la note sur la vérification de domaine Resend nécessaire pour envoyer à une adresse autre que celle du compte Resend.
+Sans `RESEND_API_KEY`, les messages sont seulement journalisés côté serveur (mode dégradé pour le développement local). Voir `.env.local.example` pour la variable optionnelle `CONTACT_FROM_EMAIL` et la note sur la vérification de domaine Resend nécessaire pour envoyer à une adresse autre que celle du compte Resend.
 
 ## Documentation
 

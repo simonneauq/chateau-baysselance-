@@ -48,6 +48,7 @@ export default function AgeGate({ labels }: { labels: Labels }) {
     <div
       role="dialog"
       aria-modal="true"
+      aria-labelledby="age-gate-title"
       className="fixed inset-0 z-[100] flex items-center justify-center bg-[var(--green-deep)] px-6"
     >
       <div className="max-w-md w-full text-center">
@@ -55,15 +56,20 @@ export default function AgeGate({ labels }: { labels: Labels }) {
 
         {status === "denied" ? (
           <>
-            <h2 className="font-serif text-2xl text-white mb-4">{labels.deniedTitle}</h2>
+            <h2 id="age-gate-title" className="font-serif text-2xl text-white mb-4">
+              {labels.deniedTitle}
+            </h2>
             <p className="text-white/70">{labels.deniedText}</p>
           </>
         ) : (
           <>
-            <h2 className="font-serif text-2xl text-white mb-4">{labels.title}</h2>
+            <h2 id="age-gate-title" className="font-serif text-2xl text-white mb-4">
+              {labels.title}
+            </h2>
             <p className="text-white/70 mb-8 leading-relaxed">{labels.question}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
+                autoFocus
                 onClick={handleConfirm}
                 className="px-8 py-3 text-sm tracking-widest uppercase bg-[var(--gold)] text-[var(--green-deep)] hover:opacity-90 transition-opacity"
               >

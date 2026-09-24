@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, type ReactNode } from "react";
 import { submitContact, type ContactState } from "@/app/actions/contact";
 
 type Labels = {
@@ -16,6 +16,8 @@ type Labels = {
   errorRequired: string;
   errorEmail: string;
   errorServer: string;
+  requiredLegend: string;
+  privacyNotice: ReactNode;
 };
 
 const initialState: ContactState = { status: "idle" };
@@ -43,8 +45,12 @@ export default function ContactForm({ labels }: { labels: Labels }) {
 
   return (
     <form action={formAction} className="space-y-6">
+      <p className="text-xs text-[var(--stone)]">{labels.requiredLegend}</p>
+
       {state.status === "error" && state.errorCode && (
-        <p className="text-sm text-red-600">{errorMessages[state.errorCode]}</p>
+        <p role="alert" className="text-sm text-red-700">
+          {errorMessages[state.errorCode]}
+        </p>
       )}
 
       <div>
@@ -52,13 +58,14 @@ export default function ContactForm({ labels }: { labels: Labels }) {
           htmlFor="name"
           className="block text-xs tracking-widest uppercase text-[var(--stone)] mb-2"
         >
-          {labels.name}
+          {labels.name} <span aria-hidden="true">*</span>
         </label>
         <input
           id="name"
           name="name"
           type="text"
           placeholder={labels.placeholderName}
+          autoComplete="name"
           required
           className="w-full border-b border-[var(--stone)] bg-transparent py-2 text-sm focus:outline-none focus:border-[var(--green-deep)] transition-colors"
         />
@@ -69,13 +76,14 @@ export default function ContactForm({ labels }: { labels: Labels }) {
           htmlFor="email"
           className="block text-xs tracking-widest uppercase text-[var(--stone)] mb-2"
         >
-          {labels.email}
+          {labels.email} <span aria-hidden="true">*</span>
         </label>
         <input
           id="email"
           name="email"
           type="email"
           placeholder={labels.placeholderEmail}
+          autoComplete="email"
           required
           className="w-full border-b border-[var(--stone)] bg-transparent py-2 text-sm focus:outline-none focus:border-[var(--green-deep)] transition-colors"
         />
@@ -86,7 +94,7 @@ export default function ContactForm({ labels }: { labels: Labels }) {
           htmlFor="message"
           className="block text-xs tracking-widest uppercase text-[var(--stone)] mb-2"
         >
-          {labels.message}
+          {labels.message} <span aria-hidden="true">*</span>
         </label>
         <textarea
           id="message"
@@ -105,6 +113,10 @@ export default function ContactForm({ labels }: { labels: Labels }) {
       >
         {isPending ? "…" : labels.send}
       </button>
+
+      <p className="text-xs leading-relaxed text-[var(--stone)] [&_a]:underline [&_a]:underline-offset-2">
+        {labels.privacyNotice}
+      </p>
     </form>
   );
 }

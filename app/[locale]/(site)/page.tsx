@@ -10,6 +10,7 @@ export default async function HomePage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("home");
+  const tAlt = await getTranslations("alt");
 
   const cards = [
     {
@@ -44,7 +45,7 @@ export default async function HomePage({
       <section className="relative h-[58vh] min-h-[380px] max-h-[540px] flex items-end">
         <Image
           src="/photo_1.jpg"
-          alt="Vignes du Château Baysselance au coucher du soleil"
+          alt={tAlt("home_hero")}
           fill
           className="object-cover"
           priority
@@ -69,7 +70,7 @@ export default async function HomePage({
             <div className="relative h-32 md:h-44 overflow-hidden">
               <Image
                 src={card.img}
-                alt={card.title}
+                alt=""
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 sizes="(max-width: 1024px) 50vw, 25vw"
@@ -83,7 +84,7 @@ export default async function HomePage({
               <p className="hidden md:block text-xs leading-relaxed text-[var(--stone)]">
                 {card.text}
               </p>
-              <p className="mt-2 text-xs tracking-widest uppercase text-[var(--gold)] group-hover:opacity-70 transition-opacity">
+              <p className="mt-2 text-xs tracking-widest uppercase text-[var(--gold-text)] group-hover:opacity-70 transition-opacity">
                 {t("read_more")}
               </p>
             </div>
@@ -95,7 +96,7 @@ export default async function HomePage({
       <section className="relative h-72 md:h-96 overflow-hidden">
         <Image
           src="/photo_22.jpg"
-          alt="Chevreuil dans les vignes"
+          alt={tAlt("deer")}
           fill
           className="object-cover object-center"
           sizes="100vw"
